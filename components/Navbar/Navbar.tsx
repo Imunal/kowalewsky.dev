@@ -6,23 +6,6 @@ const navigationLinks = [
   { navID: 3, navTitile: "Kontakt", navUrl: "/contact" },
 ];
 
-{
-  /* <nav className="relative mx-auto flex w-full max-w-2xl items-center justify-between border-gray-200 bg-gray-50 bg-opacity-60 pt-8 pb-8 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 sm:pb-10">
-        <div className="grid grid-cols-1 gap-4 text-black dark:text-white md:grid-cols-2">
-          <div>
-            <h1 className="text-2xl font-bold">JK.</h1>
-          </div>
-          <div>
-            <ul>
-              <li>Projekty</li>
-              <li>CV</li>
-              <li>Kontakt</li>
-            </ul>
-          </div>
-        </div>
-      </nav> */
-}
-
 const Navbar = () => {
   return (
     <nav className="mx-auto mt-0 mb-10 w-full py-3 md:max-w-4xl">

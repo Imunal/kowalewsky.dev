@@ -1,17 +1,24 @@
+import { Inter } from "@next/font/google";
 import { Navbar } from "components";
 import "./globals.css";
 
 /*
-import { Inter } from "@next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 */
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="pl">
-      <body className="bg-gray-50 dark:bg-gray-900">
+      <body
+        className={`${inter.variable} bg-gray-50 font-sans dark:bg-gray-900`}
+      >
         <header>
           <Navbar />
         </header>
