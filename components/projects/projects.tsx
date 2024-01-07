@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Spacer from "components/Spacer/Spacer";
+import {Spacer} from "components";
 
 import ReactImage from "images/stack/react.png";
 import RTKQueryImage from "images/stack/redux-icon.webp";

@@ -1,5 +1,5 @@
-import Navbar from "./Navbar/Navbar";
-import Spacer from "./Spacer/Spacer";
-import Projects from "./Projects/Projects";
+import Navbar from "./navbar/navbar";
+import Spacer from "./ui/spacer/spacer";
+import Projects from "./projects/projects";
 
 export { Navbar, Spacer, Projects };
