@@ -1,14 +1,15 @@
+import Spacer from "components/ui/spacer/spacer";
 import Link from "next/link";
 
 const navigationLinks = [
-  { navID: 1, navTitile: "Projekty", navUrl: "/projects" },
-  { navID: 2, navTitile: "Resume", navUrl: "/resume" },
-  { navID: 3, navTitile: "Kontakt", navUrl: "/contact" },
+  //{ navID: 1, navTitile: "Projekty", navUrl: "/projects" },
+  { navID: 2, navTitile: "Resume", navUrl: "#" },
+  { navID: 3, navTitile: "Kontakt", navUrl: "mailto:juliusz@kowalewsky.dev" },
 ];
 
 const Navbar = () => {
   return (
-    <nav className="mx-auto mt-0 mb-10 w-full py-3 md:max-w-4xl">
+    <nav>
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link href="/" className="flex items-center">
           <h1 className="self-center whitespace-nowrap text-2xl font-bold text-gray-900 dark:text-gray-200">
@@ -42,7 +43,7 @@ const Navbar = () => {
             {navigationLinks.map((navigation) => (
               <li key={navigation.navID}>
                 <a
-                  href="#"
+                  href={navigation.navUrl}
                   className="block rounded p-1 text-gray-600 hover:bg-gray-800 dark:text-gray-400 sm:px-3 sm:py-2"
                   aria-current="page"
                 >
@@ -53,7 +54,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className="mt-1 mb-2 border border-gray-200 dark:border-gray-800"></div>
+      <Spacer className='mt-1 mb-2'/>
     </nav>
   );
 };

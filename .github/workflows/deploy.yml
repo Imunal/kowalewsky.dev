@@ -1,0 +1,33 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches: ["main"]
+
+env:
+  FTP_HOST: ${{secrets.FTP_HOST}}
+  FTP_LOGIN: ${{secrets.FTP_LOGIN}}
+  FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Use Node.js 20
+        uses: actions/setup-node@master
+        with:
+          node-version: '20'
+      - name: Build SSG
+        run: |
+          npm install
+          npm run build
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@master
+        with:
+          server: $FTP_HOST
+          username: $FTP_LOGIN
+          password: $FTP_PASSWORD
+          local-dir: ./out
+          server-dir: ./public_html
