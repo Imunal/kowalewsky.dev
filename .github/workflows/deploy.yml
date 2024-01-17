@@ -29,5 +29,5 @@ jobs:
           server: $FTP_HOST
           username: $FTP_LOGIN
           password: $FTP_PASSWORD
-          local-dir: ./out
-          server-dir: ./public_html
+          local-dir: ./out/
+          server-dir: ./public_html/
