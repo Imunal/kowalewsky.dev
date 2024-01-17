@@ -4,11 +4,6 @@ on:
   push:
     branches: ["main"]
 
-env:
-  FTP_HOST: ${{secrets.FTP_HOST}}
-  FTP_LOGIN: ${{secrets.FTP_LOGIN}}
-  FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -26,8 +21,8 @@ jobs:
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
         with:
-          server: $FTP_HOST
-          username: $FTP_LOGIN
-          password: $FTP_PASSWORD
+          server: ${{secrets.FTP_HOST}}
+          username: ${{secrets.FTP_LOGIN}}
+          password: ${{secrets.FTP_PASSWORD}}
           local-dir: ./out/
           server-dir: ./public_html/
