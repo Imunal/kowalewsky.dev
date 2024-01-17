@@ -19,7 +19,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="pl">
       <body
-        className={`${inter.variable} bg-gray-50 font-sans dark:bg-gray-900 container mx-auto w-full pt-10 md:max-w-4xl`}
+        className={`${inter.variable} bg-gray-50 font-sans dark:bg-gray-900 container mx-auto w-full p-4 md:max-w-4xl md:p-12`}
       >
         <header>
           <Navbar />

@@ -16,7 +16,7 @@ export default function Page() {
             Aktualnie pracuje jako Full-Stack Developer w <b>Fototransfer.pl</b>
           </p>
 
-          <div className="mt-3 grid grid-cols-1 gap-4 text-gray-700 dark:text-gray-200 md:grid-cols-3">
+          <div className="mt-3 grid grid-cols-3 gap-4 text-gray-700 dark:text-gray-200">
               <Link href="https://www.linkedin.com/in/juliusz-kowalewski-657856179/" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
