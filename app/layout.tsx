@@ -1,4 +1,5 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 //Components
 import { Navbar, Footer } from "components";
@@ -7,13 +8,13 @@ import { Navbar, Footer } from "components";
 import "./globals.css";
 
 //Fonts
-import {inter} from './fonts'
-
+import { inter } from "./fonts";
 
 export const metadata: Metadata = {
-  title: 'Juliusz Kowalewski | Full-Stack Developer',
-  description: 'Doświadczony Full-Stack Developer z kilkoma latami doświadczenia w projektowaniu i wdrażaniu rozwiązań webowych. Moja kariera charakteryzuje się ciągłym dążeniem do rozwoju i adaptacji nowych technologii, co pozwala mi na tworzenie innowacyjnych i efektywnych rozwiązań. Pasja i chęć do nauki i elastyczność w podejściu do technologii pozwalają mi na ciągłe doskonalenie umiejętności i przystosowywanie się do dynamicznie zmieniającego się środowiska branży IT.',
-}
+  title: "Juliusz Kowalewski | Full-Stack Developer",
+  description:
+    "Doświadczony Full-Stack Developer z kilkoma latami doświadczenia w projektowaniu i wdrażaniu rozwiązań webowych. Moja kariera charakteryzuje się ciągłym dążeniem do rozwoju i adaptacji nowych technologii, co pozwala mi na tworzenie innowacyjnych i efektywnych rozwiązań. Pasja i chęć do nauki i elastyczność w podejściu do technologii pozwalają mi na ciągłe doskonalenie umiejętności i przystosowywanie się do dynamicznie zmieniającego się środowiska branży IT.",
+};
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -24,14 +25,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <header>
           <Navbar />
         </header>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <footer>
-          <Footer/>
+          <Footer />
         </footer>
       </body>
+      <GoogleAnalytics gaId="G-PKGR9BZV67" />
     </html>
   );
 };
+
 export default RootLayout;
