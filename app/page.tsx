@@ -1,18 +1,18 @@
-import { Projects } from "components";
 import Link from "next/link";
+import { CommercialProjects, OpenSourceProjects } from "components";
 
 const Page = () => (
   <>
     <section className="flex flex-col justify-center items-start py-20">
-      <div className="flex flex-col items-start border-gray-200 dark:border-gray-700">
+      <div className="flex flex-col items-start">
         <p className="mb-2 text-lg font-mono text-gray-700 dark:text-gray-200">
-          Cześć nazywam się,
+          Hello my name is,
         </p>
         <h1 className="mb-2 text-3xl font-bold text-black dark:text-white md:text-5xl">
           Juliusz Kowalewski
         </h1>
         <p className="mb-2 text-lg font-mono text-gray-700 dark:text-gray-200">
-          Aktualnie pracuje jako Full-Stack Developer w <b>Fototransfer.pl</b>
+          Currently, I work as a Full-Stack Developer at <b>Fototransfer.pl</b>
         </p>
 
         <div className="mt-3 grid grid-cols-3 gap-4 text-gray-700 dark:text-gray-200">
@@ -61,7 +61,12 @@ const Page = () => (
         </div>
       </div>
     </section>
-    <Projects />
+    <section className="border-b border-b-gray-200 dark:border-b-gray-800 mb-4">
+      <OpenSourceProjects />
+    </section>
+    <section>
+      <CommercialProjects />
+    </section>
   </>
 );
 

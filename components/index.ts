@@ -1,5 +1,6 @@
 import Navbar from "./navbar/navbar";
-import Projects from "./projects/projects";
+import CommercialProjects from "./projects/commercial-projects";
+import OpenSourceProjects from "components/projects/open-source-projects";
 import Footer from "./footer/footer";
 
-export { Navbar, Projects, Footer };
+export { Navbar, CommercialProjects, OpenSourceProjects, Footer };

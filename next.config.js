@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: {
-    dangerouslyAllowSVG: true,
-    domains: ['skillicons.dev'],
-  },
-}
+  output: "export",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
