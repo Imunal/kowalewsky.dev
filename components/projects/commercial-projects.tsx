@@ -310,7 +310,7 @@ const CommercialProjects = () => (
       </article>
     ))}
     <div className=" py-5">
-      <p className="text-center text-gray-600 dark:text-gray-400">
+      <p className="text-center font-mono text-gray-600 dark:text-gray-400">
         And many many more...
       </p>
     </div>
