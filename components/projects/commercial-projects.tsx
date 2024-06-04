@@ -88,7 +88,7 @@ const projects = [
       "jest",
       "vitest",
       "playwright",
-      "tailwindcss",
+      "tailwind css",
       "apache kafka",
       "aws",
       "docker",
@@ -130,7 +130,7 @@ const projects = [
       "typescript",
       "adonisjs",
       "redux-toolkit",
-      "tailwindcss",
+      "tailwind css",
       "react",
       "nodejs",
       "nginx",
@@ -172,7 +172,7 @@ const projects = [
       "react",
       "redux",
       "mysql",
-      "tailwindcss",
+      "tailwind css",
       "mysql",
     ],
   },
@@ -302,7 +302,7 @@ const CommercialProjects = () => (
         <div className="text-pretty text-justify font-mono text-muted-foreground mt-2 mb-2 text-sm text-gray-600 dark:text-gray-400">
           {project.projectDescription}
         </div>
-        <div className="grid grid-flow-row-dense grid-cols-6 gap-4">
+        <div className="grid grid-cols-4 grid-flow-row-dense md:grid-cols-6 gap-4">
           {project.projectStack.map((stack) => (
             <Badge key={stack}>{stack}</Badge>
           ))}
