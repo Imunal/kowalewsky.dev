@@ -16,9 +16,9 @@ const openSourceProjects = [
       <>
         <p>
           NestJS, and NextJS project i still develop, started for better
-          understanding microservice patern, gRPC connection, etc.
+          understanding microservice patern, gRPC protocol, etc. More
+          information about stack in project repo
         </p>
-        <p>More information about stack in project repo</p>
       </>
     ),
     projectRepoLink: "https://github.com/Imunal/open-commerce",
