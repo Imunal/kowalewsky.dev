@@ -52,7 +52,7 @@ const OpenSourceProjects = () => {
             <Link
               key={openSourceProject.projectID}
               href={openSourceProject.projectRepoLink}
-              className="flex justify-center flex-col px-3 py-3 border rounded border-gray-200 dark:border-gray-800 hover:dark:bg-gray-800"
+              className="flex justify-center flex-col px-3 py-3 border rounded-sm border-gray-200 dark:border-gray-800 dark:hover:bg-gray-800"
             >
               <h2 className="font-bold text-black dark:text-white">
                 {openSourceProject.projectTitle}

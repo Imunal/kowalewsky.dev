@@ -23,7 +23,7 @@ const Navbar = () => (
             <li key={navigation.navID}>
               <Link
                 href={navigation.navUrl}
-                className="block rounded p-1 text-gray-600 hover:bg-gray-800 dark:text-gray-400 sm:px-3 sm:py-2"
+                className="block rounded-sm p-1 text-gray-600 hover:bg-gray-800 dark:text-gray-400 sm:px-3 sm:py-2"
               >
                 {navigation.navTitile}
               </Link>
