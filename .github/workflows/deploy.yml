@@ -27,5 +27,5 @@ jobs:
           local-dir: ./out/
           server-dir: ./public_html/
           port: 22
-          protocol: sftp
+          protocol: ftps
           log-level: verbose
