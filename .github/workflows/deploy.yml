@@ -27,5 +27,5 @@ jobs:
           local-dir: ./out/
           server-dir: ./public_html/
           port: 21
-          protocol: ftps
+          protocol: ftps-legacy
           log-level: verbose
