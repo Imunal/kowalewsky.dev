@@ -3,7 +3,7 @@ import Link from "next/link";
 const navigationLinks = [
 	{
 		navID: 2,
-		navTitile: "Resume",
+		navTitile: "LinkedIn",
 		navUrl: "https://www.linkedin.com/in/juliusz-kowalewski-657856179/",
 	},
 	{ navID: 3, navTitile: "Contact", navUrl: "mailto:juliusz@kowalewsky.dev" },
@@ -18,7 +18,7 @@ const Navbar = () => (
 				</h1>
 			</Link>
 			<div className="block w-auto" id="navbar-default">
-				<ul className="flex p-4 mt-0 flex-row space-x-8 border-0 text-sm font-medium ">
+				<ul className="flex p-4 mt-0 flex-row space-x-8 border-0 text-sm font-medium">
 					{navigationLinks.map((navigation) => (
 						<li key={navigation.navID}>
 							<Link

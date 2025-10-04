@@ -5,76 +5,51 @@ const projects = [
 		projectID: 1,
 		projectTitle: "Fototransfer.pl - B2B Print-On-Demand Platform",
 		projectCompany: "Fototransfer.pl",
-		projectDate: 2024,
+		projectDate: "2024-2025",
 		projectDescription: (
 			<div>
 				<p className="mb-3">
-					Byłem odpowiedzialny za projektowanie i implementację kompleksowej
-					platformy B2B skupiającej się na metodyce sprzedaży Print-On-Demand
+					I was responsible for designing and implementing a comprehensive B2B
+					platform focused on the Print-On-Demand sales methodology.
 				</p>
 				<ul className="list-inside list-decimal">
-					Zadania nad którymi głównie pracowałem:
+					Main tasks I worked on:
 					<li className="mt-2 mb-1">
-						Bliska współpraca z UI/UX designerem, przeniesienie projektu z Figmy
-						do rzeczywistego kodu. Zapewnienie, że interfejs użytkownika jest
-						intuicyjny i responsywny, poprawiając doświadczenie użytkowników.
+						Close collaboration with the UI/UX designer — transferring the Figma
+						design into production code. Ensured that the user interface was
+						intuitive and responsive, improving user experience.
 					</li>
 					<li className="mb-1">
-						Implementacja skalowalnych i wydajnych usług backendowych bazujących
-						na metodyce mikroserwisów. Stworzenie solidnego fundamentu
-						backendowego, który zapewnia wysoką wydajność i elastyczność
-						systemu.
+						Implementation of scalable and efficient backend services based on a
+						microservice methodology. Built a solid backend foundation that
+						ensures high performance and flexibility.
 					</li>
 					<li className="mb-1">
-						Zaprojektowanie, modyfikacja i dokumentacja interfejsu API dla
-						kontrahentów, umożliwiającego integrację z platformami eCommerce lub
-						innymi systemami używanymi przez kontrahentów. Umożliwienie łatwej i
-						efektywnej integracji zewnętrznych systemów z platformą, co zwiększa
-						jej funkcjonalność i zasięg.
+						Designed, modified, and documented API interfaces for partners,
+						enabling integration with eCommerce platforms or other systems.
+						Allowed seamless and efficient external system integrations,
+						increasing platform reach and functionality.
 					</li>
 					<li className="mb-1">
-						Implementacja integracji z Comarch ERP XL, co znacząco ulepszyło
-						procesy zarządzania zamówieniami, logistyka, i stanami magazynowymi.
-						Automatyczna wymiana danych między platformą, a systemem ERP
-						zmniejszyło liczbę błedów, i przyśpieszyło realizację zamówień.
+						Implemented integration with Comarch ERP XL, which significantly
+						improved order management, logistics, and inventory tracking
+						processes. Automated data exchange between the platform and ERP
+						system reduced errors and sped up order fulfillment.
 					</li>
 					<li className="mb-1">
-						Implementacja integracji z systemem wspierania produkcji kontehenta
-						który bazując na webhook’ach informuje system o zmianach na
-						zamówieniu na produkcji.
+						Implemented integration with the partner’s production management
+						system, which — based on webhooks — informs the platform about order
+						status updates during production.
 					</li>
 					<li className="mb-1">
-						Implementacja integracji z systemem produkcyjnym bazującym na
-						webhook’ach, informującym system o zmianach statusu zamówienia w
-						produkcji. Zapewnienie ciągłej synchronizacji między procesami
-						produkcyjnymi a platformą, co zwiększyło efektywność i
-						transparentność operacji.
+						Worked closely with sales and production teams to understand the
+						specific requirements of the personalized merchandise industry.
+						Tailored the platform to meet unique business needs, improving
+						operational and sales processes.
 					</li>
 					<li className="mb-1">
-						Integracja systemu z zewnętrznym partnerem obsługującym rozbudowany
-						kreator do personalizacji produktów, co zapewniło płynną wymianę
-						danych między platformą a kreatorem, co umożliwiło personalizację
-						produktów bezpośrednio na platformie.
-					</li>
-					<li className="mb-1">
-						Bliska współpraca z zespołami sprzedaży i produkcji w celu
-						zrozumienia specyficznych wymagań branży personalizacji gadżetów.
-						Dostosowanie platformy do unikalnych potrzeb biznesowych, co
-						przyczyniło się do usprawnienia procesów operacyjnych i
-						sprzedażowych.
-					</li>
-					<li className="mb-1">
-						Koordynacja działań z zespołem marketingu w celu optymalizacji
-						platformy pod kątem SEO/SEM.
-					</li>
-					<li className="mb-1">
-						Implementacja praktyk SEO, takich jak optymalizacja treści, tagów
-						meta i struktury URL, co zwiększyło widoczność platformy w
-						wyszukiwarkach.
-					</li>
-					<li>
-						Wsparcie kampanii SEM poprzez zapewnienie integracji z narzędziami
-						analitycznymi i reklamowymi.
+						Coordinated with the marketing team to optimize the platform for
+						SEO/SEM.
 					</li>
 				</ul>
 			</div>
@@ -101,27 +76,26 @@ const projects = [
 		projectID: 2,
 		projectTitle: "Euroland - CRM",
 		projectCompany: "Euroland",
-		projectDate: 2022,
+		projectDate: "2022-2025 (going)",
 		projectDescription: (
 			<div>
 				<p className="mb-3">
-					Byłem odpowiedzialny za projektowanie i wdrażanie systemu CRM,
-					mającego na celu usprawnienie zarządzania relacjami z klientami.
+					I was responsible for designing and implementing a CRM system aimed at
+					improving customer relationship management.
 				</p>
 				<ul className="list-inside list-decimal">
-					Zadania nad którymi głównie pracowałem:
+					Main tasks I worked on:
 					<li className="mt-2 mb-1">
-						Rozwój funkcji analizy zakupów kontrahentów, co pozwoliło na lepsze
-						zrozumienie potrzeb klientów i optymalizację strategii sprzedaży.
+						Developed purchase analysis features for clients, allowing better
+						insight into customer needs and optimization of sales strategies.
 					</li>
 					<li className="mb-1">
-						Regularne spotkania z zespołem sprzedażowym, co pozwoliło na bieżąco
-						reagować na ich potrzeby i wprowadzać niezbędne poprawki w systemie.
+						Held regular meetings with the sales team, enabling quick responses
+						to their needs and continuous system improvements.
 					</li>
 					<li>
-						Implementacja narzędzi, takich jak kalendarz i system zadania dla
-						handlowców, ułatwiających organizację pracy i śledzenie postępów
-						sprzedaży.
+						Implemented tools such as a calendar and task system for salespeople
+						to improve work organization and sales progress tracking.
 					</li>
 				</ul>
 			</div>
@@ -146,22 +120,22 @@ const projects = [
 		projectDescription: (
 			<div>
 				<p className="mb-3">
-					Aplikacja WMS stworzona indywidualnie pod zapotrzebowanie kontrahenta.
+					A custom WMS (Warehouse Management System) application developed for
+					the specific needs of a client.
 				</p>
 				<ul className="list-inside list-decimal">
-					Zadania nad którymi głównie pracowałem:
+					Main tasks I worked on:
 					<li className="mt-2 mb-1">
-						Opracowanie funkcjonalności do efektywnego zarządzania przestrzenią
-						magazynową, z możliwością wizualizacji układu magazynu.
+						Developed functionality for efficient warehouse space management
+						with the ability to visualize warehouse layouts.
 					</li>
 					<li className="mb-1">
-						Zaprojektowanie modułu do przyjmowania towaru na stan magazynowy, z
-						automatycznym przypisywaniem do określonych lokalizacji
-						magazynowych.
+						Designed a module for receiving goods into stock with automatic
+						assignment to specific warehouse locations.
 					</li>
 					<li>
-						Zintegrowanie funkcji generowania i drukowania etykiet kreskowych
-						QRCode bezpośrednio z poziomu przeglądarki.
+						Integrated barcode and QR code label generation and printing
+						directly from the browser.
 					</li>
 				</ul>
 			</div>
@@ -183,28 +157,27 @@ const projects = [
 		projectDescription: (
 			<div>
 				<p className="mb-3">
-					Zaprogramowałem i wdrożyłem landing page dla wypożyczalni kamperów,
-					oparty na wcześniej przygotowanym projekcie w Figmie, który umożliwia
-					klientom łatwe rezerwowanie pojazdów.
+					I developed and deployed a landing page for a camper rental company
+					based on a Figma design, enabling customers to easily book vehicles
+					online.
 				</p>
-
 				<ul className="list-inside list-decimal">
-					Zadania nad którymi głównie pracowałem:
+					Main tasks I worked on:
 					<li className="mt-2 mb-1">
-						Przeniesienie projektu z Figmy do rzeczywistego kodu, zapewniając
-						zgodność z oryginalnym designem.
+						Translated the Figma design into clean, production-ready code while
+						maintaining visual fidelity to the original project.
 					</li>
 					<li className="mb-1">
-						Implementacja prostego i intuicyjnego formularza rezerwacji,
-						umożliwiającego klientom szybkie i łatwe zarezerwowanie kampera.
+						Implemented a simple and intuitive booking form, allowing customers
+						to quickly and easily reserve a camper.
 					</li>
 					<li className="mb-1">
-						Zoptymalizowanie kodu strony, aby zapewnić szybkie ładowanie i
-						płynne działanie na różnych urządzeniach.
+						Optimized site code for fast loading and smooth performance across
+						devices.
 					</li>
 					<li>
-						Wprowadzenie praktyk SEO, aby zwiększyć widoczność strony w wynikach
-						wyszukiwania.
+						Applied SEO best practices to improve the site’s visibility in
+						search results.
 					</li>
 				</ul>
 			</div>
@@ -214,49 +187,47 @@ const projects = [
 	{
 		projectID: 5,
 		projectTitle: "Fototransfer.pl - System wspomagania produkcji",
-		projectDate: "2018 - 2022",
+		projectDate: "2018 - 2025",
 		projectDescription: (
 			<div>
 				<p className="mb-3">
-					Brałem udział w projektowaniu i rozwijaniu zaawansowanego systemu
-					wspierającego procesy produkcyjne, który przyczynił się do zwiększenia
-					wydajności i redukcji kosztów operacyjnych.
+					I participated in designing and developing an advanced production
+					support system that significantly improved efficiency and reduced
+					operational costs.
 				</p>
 				<ul className="list-inside list-decimal">
-					Zadania nad którymi głównie pracowałem:
+					Main tasks I worked on:
 					<li className="mt-2 mb-1">
-						Implementacja narzędzi do real-time monitoringu, które umożliwiły
-						śledzenie wydajności i identyfikację wąskich gardeł w produkcji.
+						Implemented real-time monitoring tools enabling performance tracking
+						and identification of production bottlenecks.
 					</li>
 					<li className="mb-1">
-						Wprowadzenie dashboardów i raportów, które dostarczały kluczowych
-						informacji o stanie produkcji, co umożliwiło szybką reakcję na
-						potencjalne problemy.
+						Introduced dashboards and reports that provided key production
+						insights, enabling quick responses to potential issues.
 					</li>
 					<li className="mb-1">
-						Implementacja modułu zarządzania pracownikami, który umożliwia
-						śledzenie i analizę wydajności pracowników.
+						Implemented an employee management module for tracking and analyzing
+						performance metrics.
 					</li>
 					<li className="mb-1">
-						Wprowadzenie systemu rozliczeń akordowych, co pozwala na dokładne i
-						sprawiedliwe rozliczanie wynagrodzeń na podstawie wydajności pracy.
+						Introduced a piecework accounting system to ensure fair and accurate
+						performance-based compensation.
 					</li>
 					<li className="mb-1">
-						Zapewnienie płynnej integracji z istniejącymi systemem ERP, co
-						umożliwiło wymianę danych i synchronizację procesów produkcyjnych.
+						Ensured smooth integration with the existing ERP system, allowing
+						data synchronization across production processes.
 					</li>
 					<li className="mb-1">
-						Implementacja funkcji drukowania kodów QR z poziomu przeglądarki, co
-						ułatwiło identyfikację i śledzenie produktów w procesie
-						produkcyjnym.
+						Implemented QR code printing functionality directly from the
+						browser, simplifying product tracking within production.
 					</li>
 					<li className="mb-1">
-						Stworzenie interfejsów API, które umożliwiły integrację zewnętrznych
-						aplikacji i systemów.
+						Created API interfaces enabling integration with external
+						applications and systems.
 					</li>
 					<li>
-						Bliska współpraca z zespołem zarządzającym produkcją, i zespołami
-						technicznymi w celu zrozumienia specyficznych wymagań i wyzwań.
+						Collaborated closely with production management and technical teams
+						to understand specific requirements and challenges.
 					</li>
 				</ul>
 			</div>

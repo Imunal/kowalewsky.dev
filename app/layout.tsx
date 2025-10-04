@@ -12,7 +12,7 @@ import { inter } from "./fonts";
 export const metadata: Metadata = {
 	title: "Juliusz Kowalewski | Full-Stack Developer",
 	description:
-		"Doświadczony Full-Stack Developer z kilkoma latami doświadczenia w projektowaniu i wdrażaniu rozwiązań webowych. Moja kariera charakteryzuje się ciągłym dążeniem do rozwoju i adaptacji nowych technologii, co pozwala mi na tworzenie innowacyjnych i efektywnych rozwiązań. Pasja i chęć do nauki i elastyczność w podejściu do technologii pozwalają mi na ciągłe doskonalenie umiejętności i przystosowywanie się do dynamicznie zmieniającego się środowiska branży IT.",
+		"Experienced Full-Stack Developer with several years of experience in designing and implementing web solutions. My career is defined by a continuous drive for growth and the adoption of new technologies, enabling me to create innovative and efficient solutions. Passion for learning and flexibility in approaching technology allow me to continuously improve my skills and adapt to the rapidly evolving IT industry.",
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { CommercialProjects, OpenSourceProjects } from "components";
+import Link from "next/link";
 
 const Page = () => (
 	<>
@@ -12,7 +12,7 @@ const Page = () => (
 					Juliusz Kowalewski
 				</h1>
 				<p className="mb-2 text-lg font-mono text-gray-700 dark:text-gray-200">
-					Currently, I work as a Full-Stack Developer at <b>Fototransfer.pl</b>
+					Currently, I work as a Full-Stack Developer at <b>Diameter Pay</b>
 				</p>
 
 				<div className="mt-3 grid grid-cols-3 gap-4 text-gray-700 dark:text-gray-200">
