@@ -10,21 +10,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
-      - name: Use Node.js 22
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Use Node.js 24
         uses: actions/setup-node@master
         with:
           node-version: '24'
+          cache: 'pnpm'
       - name: Build SSG
         run: |
-          npm install
-          npm run build
+          pnpm install --frozen-lockfile
+          pnpm build
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
         with:
           server: ${{secrets.FTP_HOST}}
           username: ${{secrets.FTP_LOGIN}}
           password: ${{secrets.FTP_PASSWORD}}
-          local-dir: ./out/
+          local-dir: ./dist/
           server-dir: ./public_html/
           port: 21
           log-level: verbose

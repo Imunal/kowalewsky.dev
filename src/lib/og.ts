@@ -1,23 +1,18 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
 
-const FONT_DIR = join(process.cwd(), ".astro/fonts");
+const FONT_DIR = join(process.cwd(), "src/assets/fonts");
 
-const loadFont = (weight: number): string => {
-	const file = readdirSync(FONT_DIR).find((f) =>
-		f.startsWith(`font-inter-${weight}-normal-latin`),
-	);
-	if (!file) throw new Error(`Inter ${weight} not found in .astro/fonts`);
-	return readFileSync(join(FONT_DIR, file)).toString("base64");
-};
+const loadFont = (name: string): string =>
+	readFileSync(`${FONT_DIR}/${name}`).toString("base64");
 
 let inter700: string;
 let inter800: string;
 
 const getFonts = () => {
-	if (!inter700) inter700 = loadFont(700);
-	if (!inter800) inter800 = loadFont(800);
+	if (!inter700) inter700 = loadFont("inter-700.woff2");
+	if (!inter800) inter800 = loadFont("inter-800.woff2");
 	return { inter700, inter800 };
 };
 
