@@ -12,6 +12,8 @@
 /.next/
 /out/
 
+.astro
+
 # production
 /build
 /out

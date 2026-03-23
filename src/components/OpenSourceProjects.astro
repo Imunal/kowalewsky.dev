@@ -1,0 +1,55 @@
+---
+const openSourceProjects = [
+	{
+		id: 1,
+		title: "react-dpd-pickup-map",
+		description:
+			"React component designed to seamlessly integrate the DPD Pickup Map into any React project.",
+		repoLink: "https://github.com/Imunal/react-dpd-pickup-map",
+	},
+	{
+		id: 2,
+		title: "react-qztray",
+		description:
+			"React hooks for seamless integration with QZ Tray - the browser-to-desktop print connector.",
+		repoLink: "https://github.com/Imunal/react-qztray",
+	},
+	{
+		id: 3,
+		title: "open-commerce",
+		description:
+			"NestJS, and NextJS project, started for better understanding microservice patern, gRPC protocol, etc.",
+		repoLink: "https://github.com/Imunal/open-commerce",
+	},
+	{
+		id: 4,
+		title: "kowalewsky.dev",
+		description: "Personal website",
+		repoLink: "https://github.com/Imunal/kowalewsky.dev",
+	},
+];
+---
+
+<div class="flex flex-col gap-6">
+	<h2 class="text-xl font-bold text-black dark:text-white">
+		Open-source projects
+	</h2>
+
+	<article class="mb-6">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			{
+				openSourceProjects.map((project) => (
+					<a
+						href={project.repoLink}
+						class="flex justify-center flex-col px-3 py-3 border rounded-sm border-gray-200 dark:border-gray-800 dark:hover:bg-gray-800"
+					>
+						<h3 class="font-bold text-black dark:text-white">{project.title}</h3>
+						<p class="text-pretty font-mono mt-2 text-sm text-gray-600 dark:text-gray-400">
+							{project.description}
+						</p>
+					</a>
+				))
+			}
+		</div>
+	</article>
+</div>

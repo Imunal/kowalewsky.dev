@@ -1,0 +1,171 @@
+---
+import Badge from "./Badge.astro";
+
+const projects = [
+	{
+		projectID: 1,
+		projectTitle: "Fototransfer.pl — B2B Print-On-Demand Platform",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2024–2025",
+		projectIntro:
+			"Designed and implemented a comprehensive B2B platform focused on the Print-On-Demand sales methodology.",
+		projectTasks: [
+			"Close collaboration with the UI/UX designer — transferring the Figma design into production code. Ensured that the user interface was intuitive and responsive, improving user experience.",
+			"Implementation of scalable and efficient backend services based on a microservice methodology. Built a solid backend foundation that ensures high performance and flexibility.",
+			"Designed, modified, and documented API interfaces for partners, enabling integration with eCommerce platforms or other systems. Allowed seamless and efficient external system integrations, increasing platform reach and functionality.",
+			"Implemented integration with Comarch ERP XL, which significantly improved order management, logistics, and inventory tracking processes. Automated data exchange between the platform and ERP system reduced errors and sped up order fulfillment.",
+			"Implemented integration with the partner's production management system, which — based on webhooks — informs the platform about order status updates during production.",
+			"Worked closely with sales and production teams to understand the specific requirements of the personalized merchandise industry. Tailored the platform to meet unique business needs, improving operational and sales processes.",
+			"Coordinated with the marketing team to optimize the platform for SEO/SEM.",
+		],
+		projectStack: [
+			"typescript",
+			"nextjs",
+			"swr",
+			"nestjs",
+			"prisma",
+			"jest",
+			"vitest",
+			"playwright",
+			"tailwind css",
+			"apache kafka",
+			"aws",
+			"docker",
+			"nginx",
+			"postgresql",
+			"github actions",
+		],
+	},
+	{
+		projectID: 2,
+		projectTitle: "Euroland — CRM",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2022–present",
+		projectIntro:
+			"Designed and implemented a CRM system aimed at improving customer relationship management.",
+		projectTasks: [
+			"Developed purchase analysis features for clients, allowing better insight into customer needs and optimization of sales strategies.",
+			"Held regular meetings with the sales team, enabling quick responses to their needs and continuous system improvements.",
+			"Implemented tools such as a calendar and task system for salespeople to improve work organization and sales progress tracking.",
+		],
+		projectStack: [
+			"typescript",
+			"adonisjs",
+			"redux-toolkit",
+			"tailwind css",
+			"react",
+			"nodejs",
+			"nginx",
+			"docker",
+			"github actions",
+			"mssql",
+		],
+	},
+	{
+		projectID: 3,
+		projectTitle: "ProFoto — WMS",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2020",
+		projectIntro:
+			"A custom WMS (Warehouse Management System) application developed for the specific needs of a client.",
+		projectTasks: [
+			"Developed functionality for efficient warehouse space management with the ability to visualize warehouse layouts.",
+			"Designed a module for receiving goods into stock with automatic assignment to specific warehouse locations.",
+			"Integrated barcode and QR code label generation and printing directly from the browser.",
+		],
+		projectStack: ["laravel", "php", "react", "redux", "mysql", "tailwind css"],
+	},
+	{
+		projectID: 4,
+		projectTitle: "Camptravels.com",
+		projectRole: "Frontend Developer",
+		projectDate: "2019",
+		projectIntro:
+			"Developed and deployed a landing page for a camper rental company based on a Figma design, enabling customers to easily book vehicles online.",
+		projectTasks: [
+			"Translated the Figma design into clean, production-ready code while maintaining visual fidelity to the original project.",
+			"Implemented a simple and intuitive booking form, allowing customers to quickly and easily reserve a camper.",
+			"Optimized site code for fast loading and smooth performance across devices.",
+			"Applied SEO best practices to improve the site's visibility in search results.",
+		],
+		projectStack: ["gatsby", "php"],
+	},
+	{
+		projectID: 5,
+		projectTitle: "Fototransfer.pl — Production Support System",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2018–2025",
+		projectIntro:
+			"Participated in designing and developing an advanced production support system that significantly improved efficiency and reduced operational costs.",
+		projectTasks: [
+			"Implemented real-time monitoring tools enabling performance tracking and identification of production bottlenecks.",
+			"Introduced dashboards and reports that provided key production insights, enabling quick responses to potential issues.",
+			"Implemented an employee management module for tracking and analyzing performance metrics.",
+			"Introduced a piecework accounting system to ensure fair and accurate performance-based compensation.",
+			"Ensured smooth integration with the existing ERP system, allowing data synchronization across production processes.",
+			"Implemented QR code printing functionality directly from the browser, simplifying product tracking within production.",
+			"Created API interfaces enabling integration with external applications and systems.",
+			"Collaborated closely with production management and technical teams to understand specific requirements and challenges.",
+		],
+		projectStack: [
+			"typescript",
+			"react",
+			"redux-toolkit",
+			"chakra-ui",
+			"qz-tray",
+			"adonisjs",
+			"nodejs",
+			"vite",
+			"vitest",
+			"apache kafka",
+			"aws",
+			"docker",
+			"nginx",
+			"github actions",
+			"mssql",
+		],
+	},
+];
+---
+
+<div class="flex flex-col gap-6">
+	<h2 class="text-xl font-bold text-black dark:text-white">Experience</h2>
+	{
+		projects.map((project) => (
+			<article class="flex flex-col pb-5 gap-y-3 border-b border-b-gray-200 dark:border-b-gray-800">
+				<div class="flex items-start justify-between gap-x-2">
+					<div>
+						<h3 class="font-extrabold text-gray-600 dark:text-gray-200">
+							{project.projectTitle}
+						</h3>
+						<p class="text-sm font-mono text-gray-500 dark:text-gray-400 mt-0.5">
+							{project.projectRole}
+						</p>
+					</div>
+					<span class="shrink-0 text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+						{project.projectDate}
+					</span>
+				</div>
+				<div class="text-pretty text-justify font-mono mt-1 mb-1 text-sm text-gray-600 dark:text-gray-400">
+					<p class="mb-2">{project.projectIntro}</p>
+					<p class="mb-1">Main tasks:</p>
+					<ul class="list-inside list-disc">
+						{project.projectTasks.map((task) => (
+							<li class="mt-2 mb-1">{task}</li>
+						))}
+					</ul>
+				</div>
+				<div class="grid grid-cols-4 grid-flow-row-dense md:grid-cols-6 gap-4">
+					{project.projectStack.map((stack) => (
+						<Badge>{stack}</Badge>
+					))}
+				</div>
+			</article>
+		))
+	}
+	<div class="py-5">
+		<p class="text-center font-mono text-gray-600 dark:text-gray-400">
+			And many many more...
+		</p>
+	</div>
+</div>

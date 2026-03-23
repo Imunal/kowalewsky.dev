@@ -6,7 +6,7 @@
 		"useIgnoreFile": false
 	},
 	"files": {
-		"includes": ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+		"includes": ["src/**/*.{ts,tsx}"],
 		"ignoreUnknown": false
 	},
 	"formatter": {
@@ -14,10 +14,7 @@
 		"indentStyle": "tab"
 	},
 	"linter": {
-		"enabled": true,
-		"domains": {
-			"next": "recommended"
-		}
+		"enabled": true
 	},
 	"javascript": {
 		"formatter": {

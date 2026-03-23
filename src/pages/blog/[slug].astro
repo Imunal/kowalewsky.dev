@@ -1,0 +1,112 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const siteUrl = "https://kowalewsky.dev";
+
+const formatDate = (iso: string) =>
+	new Date(iso).toLocaleDateString("en-GB", {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+	});
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: post.data.title,
+	description: post.data.description,
+	datePublished: post.data.date,
+	dateModified: post.data.date,
+	keywords: post.data.tags,
+	url: `${siteUrl}/blog/${post.id}`,
+	mainEntityOfPage: {
+		"@type": "WebPage",
+		"@id": `${siteUrl}/blog/${post.id}`,
+	},
+	author: {
+		"@type": "Person",
+		name: "Juliusz Kowalewski",
+		url: siteUrl,
+	},
+	publisher: {
+		"@type": "Person",
+		name: "Juliusz Kowalewski",
+		url: siteUrl,
+	},
+};
+---
+
+<Layout
+	title={`${post.data.title} | Juliusz Kowalewski`}
+	description={post.data.description}
+	canonical={`/blog/${post.id}`}
+	ogType="article"
+	ogUrl={`${siteUrl}/blog/${post.id}`}
+	ogImage={`${siteUrl}/og/${post.id}.png`}
+	ogImageSquare={`${siteUrl}/og/${post.id}-square.png`}
+	ogImageAlt={post.data.title}
+	articlePublishedTime={post.data.date}
+	articleTags={post.data.tags}
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	</Fragment>
+
+	<article class="py-12">
+		<a
+			href="/blog"
+			data-astro-prefetch
+			class="mb-8 inline-flex items-center gap-1 font-mono text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+		>
+			← Back to blog
+		</a>
+
+		<header
+			class="mt-6 mb-10 border-b border-gray-200 dark:border-gray-800 pb-8"
+		>
+			<h1
+				class="mb-4 text-3xl font-bold text-black dark:text-white md:text-4xl leading-tight"
+			>
+				{post.data.title}
+			</h1>
+			<div class="flex flex-wrap items-center gap-3">
+				<time
+					datetime={post.data.date}
+					class="font-mono text-sm text-gray-500 dark:text-gray-400"
+				>
+					{formatDate(post.data.date)}
+				</time>
+				{
+					post.data.tags.length > 0 && (
+						<>
+							<span class="text-gray-300 dark:text-gray-600">·</span>
+							<div class="flex flex-wrap gap-2">
+								{post.data.tags.map((tag) => (
+									<span class="rounded-md bg-gray-200 dark:bg-gray-800 px-2 py-0.5 font-mono text-xs text-gray-500 dark:text-white">
+										{tag}
+									</span>
+								))}
+							</div>
+						</>
+					)
+				}
+			</div>
+		</header>
+
+		<div class="mdx-content">
+			<Content />
+		</div>
+	</article>
+</Layout>
