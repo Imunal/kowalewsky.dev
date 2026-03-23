@@ -3,17 +3,18 @@ import { Badge } from "components/badge/badge";
 const projects = [
 	{
 		projectID: 1,
-		projectTitle: "Fototransfer.pl - B2B Print-On-Demand Platform",
+		projectTitle: "Fototransfer.pl — B2B Print-On-Demand Platform",
 		projectCompany: "Fototransfer.pl",
-		projectDate: "2024-2025",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2024–2025",
 		projectDescription: (
 			<div>
-				<p className="mb-3">
-					I was responsible for designing and implementing a comprehensive B2B
-					platform focused on the Print-On-Demand sales methodology.
+				<p className="mb-2">
+					Designed and implemented a comprehensive B2B platform focused on the
+					Print-On-Demand sales methodology.
 				</p>
-				<ul className="list-inside list-decimal">
-					Main tasks I worked on:
+				<p className="mb-1">Main tasks:</p>
+				<ul className="list-inside list-disc">
 					<li className="mt-2 mb-1">
 						Close collaboration with the UI/UX designer — transferring the Figma
 						design into production code. Ensured that the user interface was
@@ -37,7 +38,7 @@ const projects = [
 						system reduced errors and sped up order fulfillment.
 					</li>
 					<li className="mb-1">
-						Implemented integration with the partner’s production management
+						Implemented integration with the partner's production management
 						system, which — based on webhooks — informs the platform about order
 						status updates during production.
 					</li>
@@ -74,17 +75,18 @@ const projects = [
 	},
 	{
 		projectID: 2,
-		projectTitle: "Euroland - CRM",
+		projectTitle: "Euroland — CRM",
 		projectCompany: "Euroland",
-		projectDate: "2022-2025 (going)",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2022–present",
 		projectDescription: (
 			<div>
-				<p className="mb-3">
-					I was responsible for designing and implementing a CRM system aimed at
-					improving customer relationship management.
+				<p className="mb-2">
+					Designed and implemented a CRM system aimed at improving customer
+					relationship management.
 				</p>
-				<ul className="list-inside list-decimal">
-					Main tasks I worked on:
+				<p className="mb-1">Main tasks:</p>
+				<ul className="list-inside list-disc">
 					<li className="mt-2 mb-1">
 						Developed purchase analysis features for clients, allowing better
 						insight into customer needs and optimization of sales strategies.
@@ -115,16 +117,18 @@ const projects = [
 	},
 	{
 		projectID: 3,
-		projectTitle: "ProFoto - WMS",
-		projectDate: 2020,
+		projectTitle: "ProFoto — WMS",
+		projectCompany: "ProFoto",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2020",
 		projectDescription: (
 			<div>
-				<p className="mb-3">
+				<p className="mb-2">
 					A custom WMS (Warehouse Management System) application developed for
 					the specific needs of a client.
 				</p>
-				<ul className="list-inside list-decimal">
-					Main tasks I worked on:
+				<p className="mb-1">Main tasks:</p>
+				<ul className="list-inside list-disc">
 					<li className="mt-2 mb-1">
 						Developed functionality for efficient warehouse space management
 						with the ability to visualize warehouse layouts.
@@ -140,29 +144,23 @@ const projects = [
 				</ul>
 			</div>
 		),
-		projectStack: [
-			"laravel",
-			"php",
-			"react",
-			"redux",
-			"mysql",
-			"tailwind css",
-			"mysql",
-		],
+		projectStack: ["laravel", "php", "react", "redux", "mysql", "tailwind css"],
 	},
 	{
 		projectID: 4,
 		projectTitle: "Camptravels.com",
-		projectDate: 2019,
+		projectCompany: "Camptravels",
+		projectRole: "Frontend Developer",
+		projectDate: "2019",
 		projectDescription: (
 			<div>
-				<p className="mb-3">
-					I developed and deployed a landing page for a camper rental company
+				<p className="mb-2">
+					Developed and deployed a landing page for a camper rental company
 					based on a Figma design, enabling customers to easily book vehicles
 					online.
 				</p>
-				<ul className="list-inside list-decimal">
-					Main tasks I worked on:
+				<p className="mb-1">Main tasks:</p>
+				<ul className="list-inside list-disc">
 					<li className="mt-2 mb-1">
 						Translated the Figma design into clean, production-ready code while
 						maintaining visual fidelity to the original project.
@@ -176,7 +174,7 @@ const projects = [
 						devices.
 					</li>
 					<li>
-						Applied SEO best practices to improve the site’s visibility in
+						Applied SEO best practices to improve the site's visibility in
 						search results.
 					</li>
 				</ul>
@@ -186,17 +184,19 @@ const projects = [
 	},
 	{
 		projectID: 5,
-		projectTitle: "Fototransfer.pl - System wspomagania produkcji",
-		projectDate: "2018 - 2025",
+		projectTitle: "Fototransfer.pl — Production Support System",
+		projectCompany: "Fototransfer.pl",
+		projectRole: "Full-Stack Developer",
+		projectDate: "2018–2025",
 		projectDescription: (
 			<div>
-				<p className="mb-3">
-					I participated in designing and developing an advanced production
-					support system that significantly improved efficiency and reduced
-					operational costs.
+				<p className="mb-2">
+					Participated in designing and developing an advanced production support
+					system that significantly improved efficiency and reduced operational
+					costs.
 				</p>
-				<ul className="list-inside list-decimal">
-					Main tasks I worked on:
+				<p className="mb-1">Main tasks:</p>
+				<ul className="list-inside list-disc">
 					<li className="mt-2 mb-1">
 						Implemented real-time monitoring tools enabling performance tracking
 						and identification of production bottlenecks.
@@ -236,7 +236,7 @@ const projects = [
 			"typescript",
 			"react",
 			"redux-toolkit",
-			"charka-ui",
+			"chakra-ui",
 			"qz-tray",
 			"adonisjs",
 			"nodejs",
@@ -254,23 +254,28 @@ const projects = [
 
 const CommercialProjects = () => (
 	<div className="flex flex-col gap-6">
-		<h1 className="text-xl font-bold text-black dark:text-white">
-			Commercial projects
-		</h1>
+		<h2 className="text-xl font-bold text-black dark:text-white">
+			Experience
+		</h2>
 		{projects.map((project) => (
 			<article
 				className="flex flex-col pb-5 gap-y-3 border-b border-b-gray-200 dark:border-b-gray-800"
 				key={project.projectID}
 			>
-				<div className="flex items-center justify-between gap-x-2 text-base">
-					<h3 className="font-extrabold text-gray-600 dark:text-gray-200">
-						{project.projectTitle}
-					</h3>
-					<span className="text-gray-700 dark:text-gray-200">
+				<div className="flex items-start justify-between gap-x-2">
+					<div>
+						<h3 className="font-extrabold text-gray-600 dark:text-gray-200">
+							{project.projectTitle}
+						</h3>
+						<p className="text-sm font-mono text-gray-500 dark:text-gray-400 mt-0.5">
+							{project.projectRole}
+						</p>
+					</div>
+					<span className="shrink-0 text-sm text-gray-500 dark:text-gray-400 mt-0.5">
 						{project.projectDate}
 					</span>
 				</div>
-				<div className="text-pretty text-justify font-mono text-muted-foreground mt-2 mb-2 text-sm text-gray-600 dark:text-gray-400">
+				<div className="text-pretty text-justify font-mono mt-1 mb-1 text-sm text-gray-600 dark:text-gray-400">
 					{project.projectDescription}
 				</div>
 				<div className="grid grid-cols-4 grid-flow-row-dense md:grid-cols-6 gap-4">
@@ -280,7 +285,7 @@ const CommercialProjects = () => (
 				</div>
 			</article>
 		))}
-		<div className=" py-5">
+		<div className="py-5">
 			<p className="text-center font-mono text-gray-600 dark:text-gray-400">
 				And many many more...
 			</p>

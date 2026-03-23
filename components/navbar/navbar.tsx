@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const navigationLinks = [
+	{ navID: 1, navTitile: "Blog", navUrl: "/blog" },
 	{
 		navID: 2,
 		navTitile: "LinkedIn",
@@ -13,9 +14,9 @@ const Navbar = () => (
 	<nav>
 		<div className="container mx-auto flex flex-wrap items-center justify-between border-b border-b-gray-200 dark:border-b-gray-800">
 			<Link href="/" className="flex items-center">
-				<h1 className="self-center whitespace-nowrap text-2xl font-bold text-gray-900 dark:text-gray-200">
+				<span className="self-center whitespace-nowrap text-2xl font-bold text-gray-900 dark:text-gray-200">
 					JK.
-				</h1>
+				</span>
 			</Link>
 			<div className="block w-auto" id="navbar-default">
 				<ul className="flex p-4 mt-0 flex-row space-x-8 border-0 text-sm font-medium">

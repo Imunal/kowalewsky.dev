@@ -6,7 +6,7 @@ const Page = () => (
 		<section className="flex flex-col justify-center items-start py-20">
 			<div className="flex flex-col items-start">
 				<p className="mb-2 text-lg font-mono text-gray-700 dark:text-gray-200">
-					Hello my name is,
+					Hello, my name is
 				</p>
 				<h1 className="mb-2 text-3xl font-bold text-black dark:text-white md:text-5xl">
 					Juliusz Kowalewski
@@ -14,8 +14,12 @@ const Page = () => (
 				<p className="mb-2 text-lg font-mono text-gray-700 dark:text-gray-200">
 					Currently, I work as a Full-Stack Developer at <b>Diameter Pay</b>
 				</p>
+				<p className="mt-3 mb-4 max-w-xl font-mono text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+					I build web platforms and APIs for a living, with a focus on
+					architecture that holds up under real-world pressure.
+				</p>
 
-				<div className="mt-3 grid grid-cols-3 gap-4 text-gray-700 dark:text-gray-200">
+				<div className="mt-1 grid grid-cols-3 gap-4 text-gray-700 dark:text-gray-200">
 					<Link
 						href="https://www.linkedin.com/in/juliusz-kowalewski-657856179/"
 						target="_blank"
@@ -51,7 +55,7 @@ const Page = () => (
 						</svg>
 					</Link>
 					<Link
-						href="matilto:juliusz@kowalewsky.dev"
+						href="mailto:juliusz@kowalewsky.dev"
 						aria-label="Send me an e-mail"
 					>
 						<svg

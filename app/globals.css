@@ -17,6 +17,23 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+::selection {
+  background: var(--color-gray-900);
+  color: var(--color-gray-0);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: var(--color-gray-200);
+    color: var(--color-gray-900);
+  }
+}
+
+.hljs {
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+}
+
 @layer base {
   *,
   ::after,
