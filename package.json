@@ -2,6 +2,7 @@
   "name": "kowalewsky.dev",
   "version": "0.7.0",
   "private": true,
+  "packageManager": "pnpm@10.32.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
