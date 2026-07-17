@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v7
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
-          version: '10.32.1'
+          version: '11.13.1'
       - name: Use Node.js 24
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: 'pnpm'
