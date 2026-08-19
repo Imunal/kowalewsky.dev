@@ -1,16 +1,7 @@
 RewriteEngine On
 
-# Redirect non-canonical scheme/host and a trailing slash in one hop.
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^kowalewsky\.dev$ [NC]
-RewriteCond %{REQUEST_URI} ^(.+)/$
-RewriteRule ^ https://kowalewsky.dev%1 [R=301,L,NE]
-
-# Redirect non-canonical scheme/host while preserving the canonical path.
+# Redirect non-canonical scheme/host while leaving the hosting platform's
+# directory trailing-slash behavior intact.
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^kowalewsky\.dev$ [NC]
 RewriteRule ^ https://kowalewsky.dev%{REQUEST_URI} [R=301,L,NE]
-
-# Remove trailing slashes except for the site root.
-RewriteCond %{REQUEST_URI} ^(.+)/$
-RewriteRule ^ https://kowalewsky.dev%1 [R=301,L,NE]

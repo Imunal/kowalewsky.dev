@@ -9,7 +9,7 @@ export const buildCanonicalUrl = (pathOrUrl: string) => {
 
 	url.search = "";
 	url.hash = "";
-	url.pathname = url.pathname === "/" ? "/" : url.pathname.replace(/\/+$/, "");
+	url.pathname = url.pathname === "/" ? "/" : `${url.pathname.replace(/\/+$/, "")}/`;
 
 	return url.toString();
 };
