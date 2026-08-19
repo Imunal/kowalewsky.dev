@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { SITE_URL, buildCanonicalUrl } from "../../lib/seo";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const siteUrl = "https://kowalewsky.dev";
+const postUrl = buildCanonicalUrl(`/blog/${post.id}`);
 
 const formatDate = (iso: string) =>
 	new Date(iso).toLocaleDateString("en-GB", {
@@ -28,36 +29,38 @@ const jsonLd = {
 	headline: post.data.title,
 	description: post.data.description,
 	datePublished: post.data.date,
-	dateModified: post.data.date,
+	...(post.data.updated ? { dateModified: post.data.updated } : {}),
 	keywords: post.data.tags,
-	url: `${siteUrl}/blog/${post.id}`,
+	url: postUrl,
 	mainEntityOfPage: {
 		"@type": "WebPage",
-		"@id": `${siteUrl}/blog/${post.id}`,
+		"@id": postUrl,
 	},
 	author: {
 		"@type": "Person",
 		name: "Juliusz Kowalewski",
-		url: siteUrl,
+		url: SITE_URL,
 	},
 	publisher: {
 		"@type": "Person",
 		name: "Juliusz Kowalewski",
-		url: siteUrl,
+		url: SITE_URL,
 	},
+	image: `${SITE_URL}/og/${post.id}.png`,
 };
 ---
 
 <Layout
-	title={`${post.data.title} | Juliusz Kowalewski`}
+	title={post.data.title}
 	description={post.data.description}
 	canonical={`/blog/${post.id}`}
 	ogType="article"
-	ogUrl={`${siteUrl}/blog/${post.id}`}
-	ogImage={`${siteUrl}/og/${post.id}.png`}
-	ogImageSquare={`${siteUrl}/og/${post.id}-square.png`}
+	ogUrl={postUrl}
+	ogImage={`${SITE_URL}/og/${post.id}.png`}
+	ogImageSquare={`${SITE_URL}/og/${post.id}-square.png`}
 	ogImageAlt={post.data.title}
 	articlePublishedTime={post.data.date}
+	articleModifiedTime={post.data.updated}
 	articleTags={post.data.tags}
 >
 	<Fragment slot="head">

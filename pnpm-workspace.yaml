@@ -4,3 +4,5 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@astrojs/sitemap@3.7.3'
   - astro@6.3.8
+  - '@astrojs/internal-helpers@0.10.3'
+  - '@astrojs/markdown-remark@7.2.3'

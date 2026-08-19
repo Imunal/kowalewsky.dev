@@ -8,6 +8,7 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
 	site: "https://kowalewsky.dev",
 	output: "static",
+	trailingSlash: "never",
 	prefetch: true,
 	fonts: [
 		{
