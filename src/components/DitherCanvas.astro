@@ -1,0 +1,140 @@
+<hero-dither aria-hidden="true">
+	<canvas></canvas>
+</hero-dither>
+
+<style>
+	hero-dither {
+		display: none;
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	canvas {
+		display: block;
+		width: 100%;
+		height: 100%;
+		image-rendering: pixelated;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		hero-dither {
+			display: block;
+		}
+	}
+
+	@media (max-width: 640px) {
+		canvas {
+			opacity: 0.55;
+		}
+	}
+</style>
+
+<script>
+	import { fillDitherPixels } from "../lib/dither";
+
+	class HeroDither extends HTMLElement {
+		connectedCallback() {
+			const canvas = this.querySelector("canvas");
+			const hero = this.parentElement;
+			const context = canvas?.getContext("2d", { alpha: true });
+			if (!canvas || !context || !hero) return;
+
+			const dark = matchMedia("(prefers-color-scheme: dark)");
+			const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+			const controller = new AbortController();
+			const { signal } = controller;
+			let frame = 0;
+			let visible = false;
+			let lastTime = 0;
+			let elapsed = 0;
+			let pixels: ImageData;
+			let pointer = { x: 0, y: 0, strength: 0 };
+			let target = { x: 0, y: 0, strength: 0 };
+
+			const draw = () => {
+				if (!pixels) return;
+				const { width, height, data } = pixels;
+				fillDitherPixels(data, width, height, elapsed, pointer);
+				context.putImageData(pixels, 0, 0);
+			};
+
+			const tick = (time: number) => {
+				const interval = hero.clientWidth < 640 ? 1000 / 20 : 1000 / 30;
+				if (time - lastTime >= interval) {
+					elapsed += lastTime ? Math.min((time - lastTime) / 1000, 0.1) : 0;
+					lastTime = time;
+					pointer = {
+						x: pointer.x + (target.x - pointer.x) * 0.25,
+						y: pointer.y + (target.y - pointer.y) * 0.25,
+						strength: pointer.strength + (target.strength - pointer.strength) * 0.12,
+					};
+					draw();
+				}
+				frame = requestAnimationFrame(tick);
+			};
+
+			const sync = () => {
+				cancelAnimationFrame(frame);
+				lastTime = 0;
+				if (!dark.matches || !visible || document.hidden) return;
+				if (reduced.matches) {
+					pointer.strength = 0;
+					draw();
+				} else {
+					frame = requestAnimationFrame(tick);
+				}
+			};
+
+			const resize = new ResizeObserver(() => {
+				// One canvas pixel is a 3px grain; no full-resolution bitmap on Retina.
+				canvas.width = Math.max(1, Math.ceil(hero.clientWidth / 3));
+				canvas.height = Math.max(1, Math.ceil(hero.clientHeight / 3));
+				pixels = context.createImageData(canvas.width, canvas.height);
+				if (dark.matches) draw();
+				sync();
+			});
+			const intersection = new IntersectionObserver(([entry]) => {
+				visible = entry.isIntersecting;
+				sync();
+			});
+			resize.observe(hero);
+			intersection.observe(hero);
+			hero.addEventListener("pointermove", (event) => {
+				if (event.pointerType !== "mouse" || reduced.matches) return;
+				const rect = hero.getBoundingClientRect();
+				if (target.strength === 0) {
+					pointer.x = (event.clientX - rect.left) / rect.width;
+					pointer.y = (event.clientY - rect.top) / rect.height;
+				}
+				target = {
+					x: (event.clientX - rect.left) / rect.width,
+					y: (event.clientY - rect.top) / rect.height,
+					strength: 1,
+				};
+			}, { signal });
+			hero.addEventListener("pointerleave", () => { target.strength = 0; }, { signal });
+			dark.addEventListener("change", sync, { signal });
+			reduced.addEventListener("change", sync, { signal });
+			document.addEventListener("visibilitychange", sync, { signal });
+			this.cleanup = () => {
+				cancelAnimationFrame(frame);
+				controller.abort();
+				resize.disconnect();
+				intersection.disconnect();
+			};
+		}
+
+		private cleanup?: () => void;
+
+		disconnectedCallback() {
+			this.cleanup?.();
+		}
+	}
+
+	if (!customElements.get("hero-dither")) {
+		customElements.define("hero-dither", HeroDither);
+	}
+</script>

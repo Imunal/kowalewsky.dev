@@ -1,0 +1,40 @@
+---
+import DitherCanvas from "./DitherCanvas.astro";
+import Navbar from "./Navbar.astro";
+---
+
+<section class="hero relative isolate pt-4 md:pt-12">
+	<DitherCanvas />
+	<header class="relative mx-auto w-full px-4 md:max-w-4xl md:px-12">
+		<Navbar />
+	</header>
+	<div class="relative mx-auto flex w-full flex-col items-start px-4 py-20 md:max-w-4xl md:px-12">
+		<slot />
+	</div>
+</section>
+
+<style>
+	:global(html) {
+		container-type: inline-size;
+		background: var(--color-gray-50);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(html) {
+			background: var(--color-gray-900);
+		}
+	}
+
+	.hero {
+		/* Use the available page width, excluding the scrollbar. */
+		width: 100cqw;
+		margin-inline: calc(50% - 50cqw);
+		margin-top: -1rem;
+	}
+
+	@media (min-width: 48rem) {
+		.hero {
+			margin-top: -3rem;
+		}
+	}
+</style>

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
+import { fillDitherPixels } from "./dither";
 
 const FONT_DIR = join(process.cwd(), "src/assets/fonts");
 
@@ -51,16 +52,38 @@ const wrapText = (text: string, maxChars: number): string[] => {
 	return lines;
 };
 
-/** Renders SVG at 2× density then downscales — crisp text, full 24-bit colour. */
+const buildDitherBackground = async (width: number, height: number) => {
+	const columns = Math.ceil(width / 3);
+	const rows = Math.ceil(height / 3);
+	const pixels = new Uint8ClampedArray(columns * rows * 4);
+	fillDitherPixels(pixels, columns, rows);
+	return sharp(Buffer.from(pixels), {
+		raw: { width: columns, height: rows, channels: 4 },
+	})
+		.flatten({ background: "#111111" })
+		.resize(width, height, { kernel: "nearest" })
+		.png()
+		.toBuffer();
+};
+
+/** Crisp SVG lettering over the same dither field as the hero, frozen at t=0. */
 const renderSvg = async (
 	svg: string,
 	width: number,
 	height: number,
-): Promise<Buffer> =>
-	sharp(Buffer.from(svg), { density: 144 })
-		.resize(width, height, { kernel: "lanczos3" })
+): Promise<Buffer> => {
+	const [background, foreground] = await Promise.all([
+		buildDitherBackground(width, height),
+		sharp(Buffer.from(svg), { density: 144 })
+			.resize(width, height, { kernel: "lanczos3" })
+			.png()
+			.toBuffer(),
+	]);
+	return sharp(background)
+		.composite([{ input: foreground }])
 		.png({ compressionLevel: 9 })
 		.toBuffer();
+};
 
 // ─── Homepage OG ─────────────────────────────────────────────────────────────
 
@@ -72,7 +95,6 @@ export const buildHomepageLandscape = (w = 1200, h = 630): Promise<Buffer> => {
 
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <defs><style>${fontFaces()}</style></defs>
-  <rect width="${W}" height="${H}" fill="#111111" />
 
   <text x="${pad}" y="480"
     font-family="Inter" font-weight="800" font-size="320"
@@ -84,11 +106,11 @@ export const buildHomepageLandscape = (w = 1200, h = 630): Promise<Buffer> => {
 
   <text x="${pad}" y="780"
     font-family="Inter" font-weight="700" font-size="60"
-    fill="#555555">Full-Stack Developer</text>
+    fill="#999999">Full-Stack Developer</text>
 
   <text x="${pad}" y="${H - 60}"
     font-family="Inter" font-weight="700" font-size="44"
-    fill="#444444">kowalewsky.dev</text>
+    fill="#888888">kowalewsky.dev</text>
 </svg>`;
 	return renderSvg(svg, w, h);
 };
@@ -100,7 +122,6 @@ export const buildHomepageSquare = (size = 1200): Promise<Buffer> => {
 
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}">
   <defs><style>${fontFaces()}</style></defs>
-  <rect width="${S}" height="${S}" fill="#111111" />
 
   <text x="${pad}" y="680"
     font-family="Inter" font-weight="800" font-size="400"
@@ -112,11 +133,11 @@ export const buildHomepageSquare = (size = 1200): Promise<Buffer> => {
 
   <text x="${pad}" y="1020"
     font-family="Inter" font-weight="700" font-size="68"
-    fill="#555555">Full-Stack Developer</text>
+    fill="#999999">Full-Stack Developer</text>
 
   <text x="${pad}" y="${S - 80}"
     font-family="Inter" font-weight="700" font-size="52"
-    fill="#444444">kowalewsky.dev</text>
+    fill="#888888">kowalewsky.dev</text>
 </svg>`;
 	return renderSvg(svg, size, size);
 };
@@ -177,7 +198,7 @@ export const buildPostLandscape = (
 			(line, i) =>
 				`<text x="${pad}" y="${descY + i * 58}"
         font-family="Inter" font-weight="700" font-size="40"
-        fill="#555555">${escapeXml(line)}</text>`,
+        fill="#999999">${escapeXml(line)}</text>`,
 		)
 		.join("\n");
 
@@ -194,7 +215,6 @@ export const buildPostLandscape = (
 
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <defs><style>${fontFaces()}</style></defs>
-  <rect width="${W}" height="${H}" fill="#111111" />
   <rect x="${pad}" y="80" width="160" height="8" rx="4" fill="#333333" />
 
   ${titleSvg}
@@ -203,11 +223,11 @@ export const buildPostLandscape = (
 
   <text x="${W - 100}" y="${H - 60}"
     font-family="Inter" font-weight="800" font-size="52"
-    fill="#2a2a2a" text-anchor="end">JK.</text>
+    fill="#888888" text-anchor="end">JK.</text>
 
   <text x="${pad}" y="${H - 60}"
     font-family="Inter" font-weight="700" font-size="40"
-    fill="#333333">kowalewsky.dev</text>
+    fill="#888888">kowalewsky.dev</text>
 </svg>`;
 
 	return renderSvg(svg, w, h);
@@ -245,7 +265,7 @@ export const buildPostSquare = (
 			(line, i) =>
 				`<text x="${pad}" y="${descY + i * 68}"
         font-family="Inter" font-weight="700" font-size="48"
-        fill="#555555">${escapeXml(line)}</text>`,
+        fill="#999999">${escapeXml(line)}</text>`,
 		)
 		.join("\n");
 
@@ -262,7 +282,6 @@ export const buildPostSquare = (
 
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}">
   <defs><style>${fontFaces()}</style></defs>
-  <rect width="${S}" height="${S}" fill="#111111" />
   <rect x="${pad}" y="100" width="180" height="10" rx="5" fill="#333333" />
 
   ${titleSvg}
@@ -271,11 +290,11 @@ export const buildPostSquare = (
 
   <text x="${S - 100}" y="${S - 80}"
     font-family="Inter" font-weight="800" font-size="64"
-    fill="#2a2a2a" text-anchor="end">JK.</text>
+    fill="#888888" text-anchor="end">JK.</text>
 
   <text x="${pad}" y="${S - 80}"
     font-family="Inter" font-weight="700" font-size="48"
-    fill="#333333">kowalewsky.dev</text>
+    fill="#888888">kowalewsky.dev</text>
 </svg>`;
 
 	return renderSvg(svg, size, size);

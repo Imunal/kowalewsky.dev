@@ -2,7 +2,7 @@
  * Generates homepage OG images in all standard sizes.
  * Run: pnpm generate:og
  *
- * Note: Run `pnpm build` first so .astro/fonts/ is populated with Inter.
+ * Uses the bundled Inter fonts from src/assets/fonts and a static hero dither frame.
  *
  * Output:
  *   public/og-image.png        — 1200×630  (Facebook, Twitter/X, LinkedIn, Discord, Slack, Google)
