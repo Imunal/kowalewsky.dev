@@ -16,10 +16,10 @@ const openSourceProjects = [
 	},
 	{
 		id: 3,
-		title: "open-commerce",
+		title: "vevor-weatherstation-proxy",
 		description:
-			"NestJS, and NextJS project, started for better understanding microservice patern, gRPC protocol, etc.",
-		repoLink: "https://github.com/Imunal/open-commerce",
+			"Weather station proxy built with Rust, Axum, Tokio, and Serde. Captures and normalizes VEVOR sensor data for local storage and asynchronous forwarding to Weather Underground and Weathercloud.",
+		repoLink: "https://github.com/Imunal/vevor-weatherstation-proxy",
 	},
 	{
 		id: 4,
@@ -31,7 +31,7 @@ const openSourceProjects = [
 ---
 
 <div class="flex flex-col gap-6">
-	<h2 class="text-xl font-bold text-black dark:text-white">
+	<h2 class="text-xl font-bold text-white">
 		Open-source projects
 	</h2>
 
@@ -41,10 +41,10 @@ const openSourceProjects = [
 				openSourceProjects.map((project) => (
 					<a
 						href={project.repoLink}
-						class="flex justify-center flex-col px-3 py-3 border rounded-sm border-gray-200 dark:border-gray-800 dark:hover:bg-gray-800"
+						class="flex justify-center flex-col px-3 py-3 border rounded-sm border-gray-800 hover:bg-gray-800"
 					>
-						<h3 class="font-bold text-black dark:text-white">{project.title}</h3>
-						<p class="text-pretty font-mono mt-2 text-sm text-gray-600 dark:text-gray-400">
+						<h3 class="font-bold text-white">{project.title}</h3>
+						<p class="text-pretty font-mono mt-2 text-sm text-gray-400">
 							{project.description}
 						</p>
 					</a>

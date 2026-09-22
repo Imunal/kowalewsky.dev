@@ -73,7 +73,7 @@ const jsonLd = {
 		<a
 			href="/blog/"
 			data-astro-prefetch
-			class="mb-8 inline-flex items-center gap-1 font-mono text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+			class="mb-8 inline-flex items-center gap-1 font-mono text-sm text-gray-400 hover:text-white transition-colors"
 		>
 			← Back to blog
 		</a>
@@ -81,27 +81,27 @@ const jsonLd = {
 		<header class="w-full">
 			<h1
 				id="post-title"
-				class="mb-4 text-3xl font-bold text-black dark:text-white md:text-4xl leading-tight"
+				class="mb-4 text-3xl font-bold text-white md:text-4xl leading-tight"
 			>
 				{post.data.title}
 			</h1>
-			<p class="mb-6 max-w-2xl font-mono text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+			<p class="mb-6 max-w-2xl font-mono text-sm text-gray-400 leading-relaxed">
 				{post.data.description}
 			</p>
 			<div class="flex flex-wrap items-center gap-3">
 				<time
 					datetime={post.data.date}
-					class="font-mono text-sm text-gray-500 dark:text-gray-400"
+					class="font-mono text-sm text-gray-400"
 				>
 					{formatDate(post.data.date)}
 				</time>
 				{
 					post.data.tags.length > 0 && (
 						<>
-							<span class="text-gray-300 dark:text-gray-600">·</span>
+							<span class="text-gray-600">·</span>
 							<div class="flex flex-wrap gap-2">
 								{post.data.tags.map((tag) => (
-									<span class="rounded-md bg-gray-200 dark:bg-gray-800 px-2 py-0.5 font-mono text-xs text-gray-500 dark:text-white">
+									<span class="rounded-md bg-gray-800 px-2 py-0.5 font-mono text-xs text-white">
 										{tag}
 									</span>
 								))}
