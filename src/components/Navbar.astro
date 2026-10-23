@@ -27,6 +27,7 @@ const navigationLinks = [
 				{
 					navigationLinks.map((link) => (
 						<li>
+							<!--email_off-->
 							<a
 								href={link.url}
 								data-astro-prefetch={link.prefetch ? "" : undefined}
@@ -34,6 +35,7 @@ const navigationLinks = [
 							>
 								{link.title}
 							</a>
+							<!--/email_off-->
 						</li>
 					))
 				}
