@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import OpenSourceProjects from "../components/OpenSourceProjects.astro";
 import CommercialProjects from "../components/CommercialProjects.astro";
 import DitherHero from "../components/DitherHero.astro";
+import LatestPosts from "../components/LatestPosts.astro";
 ---
 
 <Layout showHeader={false}>
@@ -87,11 +88,8 @@ import DitherHero from "../components/DitherHero.astro";
 		class="border-b border-b-gray-800 mb-4"
 	>
 		<OpenSourceProjects />
-		<p class="mb-6 font-mono text-sm text-gray-400">
-			Read how I built
-			<a href="/blog/browser-to-desktop-printing-with-react-qztray/" class="text-white underline underline-offset-4">browser-to-desktop printing with React and QZ Tray</a>.
-		</p>
 	</section>
+	<LatestPosts />
 	<section>
 		<CommercialProjects />
 	</section>
