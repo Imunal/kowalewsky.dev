@@ -26,6 +26,9 @@
   "devDependencies": {
     "@biomejs/biome": "2.6.2",
     "@types/node": "^26.6.5",
+    "hast-util-from-html": "^2.0.3",
+    "hast-util-to-mdast": "^10.1.2",
+    "mdast-util-to-markdown": "^2.2.0",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",

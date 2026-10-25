@@ -5,3 +5,18 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^kowalewsky\.dev$ [NC]
 RewriteRule ^ https://kowalewsky.dev%{REQUEST_URI} [R=301,L,NE]
+
+# Serve the generated sibling only for an explicit, acceptable Markdown request.
+# Match canonical directories and explicit index.html URLs; leave assets alone.
+RewriteCond %{REQUEST_METHOD} ^(?:GET|HEAD)$
+RewriteCond %{HTTP:Accept} "(^|,)\s*text/markdown(?![^,]*;\s*q=0(?:\.0*)?\s*(?:;|,|$))\s*(?:;[^,]*)?(?:,|$)" [NC]
+RewriteCond %{DOCUMENT_ROOT}/$1index.md -f
+RewriteRule ^((?:.*/)?)(?:index\.html)?$ $1index.md [END]
+
+AddType text/markdown .md
+AddCharset UTF-8 .md
+
+# Both representations vary by Accept; preserve other cache dimensions.
+<FilesMatch "\.(html|md)$">
+    Header merge Vary Accept
+</FilesMatch>

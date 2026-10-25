@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import rehypeHighlight from "rehype-highlight";
 import { defineConfig, fontProviders } from "astro/config";
+import markdown from "./src/integrations/markdown";
 
 export default defineConfig({
 	site: "https://kowalewsky.dev",
@@ -23,6 +24,7 @@ export default defineConfig({
 	],
 	integrations: [
 		mdx(),
+		markdown(),
 		sitemap(),
 		partytown({
 			config: {
