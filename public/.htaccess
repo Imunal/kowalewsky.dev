@@ -16,6 +16,9 @@ RewriteRule ^((?:.*/)?)(?:index\.html)?$ $1index.md [END]
 AddType text/markdown .md
 AddCharset UTF-8 .md
 
+# Advertise the machine-readable homepage for agent discovery (RFC 8288).
+Header always set Link "</index.md>; rel=\"describedby\"; type=\"text/markdown\"" "expr=%{REQUEST_URI} =~ m#^/(index\.(html|md))?$#"
+
 # Both representations vary by Accept; preserve other cache dimensions.
 <FilesMatch "\.(html|md)$">
     Header merge Vary Accept
